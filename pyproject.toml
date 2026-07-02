@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py-ionization"
+version = "0.1.0"
+description = "Cross sections and production-rate calculations for photoionization, electron impact ionization, and charge exchange."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  {name = "Chi Zhang"}
+]
+dependencies = [
+  "numpy>=1.22"
+]
+
+[tool.setuptools]
+packages = [
+  "py_ionization",
+  "py_ionization.photoionization",
+  "py_ionization.electron_impact",
+  "py_ionization.charge_exchange"
+]
+
+[tool.setuptools.package-data]
+"py_ionization.photoionization" = ["data/*.txt"]
+"py_ionization.electron_impact" = ["data/*.txt"]
+"py_ionization.charge_exchange" = ["data/*.txt"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
